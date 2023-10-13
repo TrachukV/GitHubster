@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:githubster/bloc/enums/request_status.dart';
+import 'package:githubster/bloc/enums/search_from_history_status.dart';
 import 'package:githubster/bloc/search_bloc/search_bloc.dart';
 import 'package:githubster/pages/search_page/widgets/repository_item_wrap_widget.dart';
 import 'package:githubster/resources/app_colors.dart';
@@ -77,11 +78,13 @@ class RepositoryHistoryColumn extends StatelessWidget {
                                         ),
                                 child: GestureDetector(
                                   onTap: () {
+                                    final searchValue = state
+                                        .githubHistoryList[index].searchValue;
                                     context.read<SearchBloc>().add(
                                           RequestForSearchEvent(
-                                            searchValue: state
-                                                .githubHistoryList[index]
-                                                .searchValue,
+                                            searchValue: searchValue,
+                                            searchFromHistoryStatus:
+                                                SearchFromHistoryStatus.history,
                                           ),
                                         );
                                   },

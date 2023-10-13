@@ -31,9 +31,11 @@ class RemoveFromFavoriteEvent extends SearchEvent {
 
 class RequestForSearchEvent extends SearchEvent {
   final String searchValue;
+  final SearchFromHistoryStatus searchFromHistoryStatus;
 
   RequestForSearchEvent({
     required this.searchValue,
+    required this.searchFromHistoryStatus,
   });
 }
 

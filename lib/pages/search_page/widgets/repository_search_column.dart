@@ -70,7 +70,7 @@ class RepositorySearchColumn extends StatelessWidget {
           case RequestStatus.loading:
             return const Align(
               alignment: Alignment.topCenter,
-              child: const CircularProgressIndicator.adaptive(
+              child: CircularProgressIndicator.adaptive(
                 backgroundColor: AppColors.textPlaceHolder,
               ),
             );

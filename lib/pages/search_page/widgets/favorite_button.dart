@@ -21,17 +21,19 @@ class FavoriteButton extends StatelessWidget {
             state.githubFavoriteList.contains(gitHubRepositoryModel);
         return GestureDetector(
           onTap: () {
-            containsId
-                ? context.read<SearchBloc>().add(
-                      RemoveFromFavoriteEvent(
-                        gitHubRepositoryModel: gitHubRepositoryModel,
-                      ),
-                    )
-                : context.read<SearchBloc>().add(
-                      AddToFavoriteEvent(
-                        gitHubRepositoryModel: gitHubRepositoryModel,
-                      ),
-                    );
+            if (containsId) {
+              context.read<SearchBloc>().add(
+                    RemoveFromFavoriteEvent(
+                      gitHubRepositoryModel: gitHubRepositoryModel,
+                    ),
+                  );
+            } else {
+              context.read<SearchBloc>().add(
+                    AddToFavoriteEvent(
+                      gitHubRepositoryModel: gitHubRepositoryModel,
+                    ),
+                  );
+            }
           },
           child: containsId
               ? Assets.icons.favoriteActive.svg(

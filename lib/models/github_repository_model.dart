@@ -5,10 +5,11 @@ class GitHubRepositoryModel extends Equatable {
   final String nameOfRepository;
   final String url;
 
-  const GitHubRepositoryModel(
-      {required this.repositoryId,
-      required this.nameOfRepository,
-      required this.url});
+  const GitHubRepositoryModel({
+    required this.repositoryId,
+    required this.nameOfRepository,
+    required this.url,
+  });
 
   Map<String, dynamic> toJson() {
     return {

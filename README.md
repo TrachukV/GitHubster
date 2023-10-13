@@ -1,16 +1,11 @@
-# githubster
+# GitHubster
 
-A new Flutter project.
+GitHubster is an application designed to help you search for GitHub
+repositories.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+To ensure the proper functionality of the application, you need to generate
+assets using the following Flutter command:
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+'flutter packages pub run build_runner build --delete-conflicting-outputs'

@@ -3,20 +3,19 @@ import 'package:githubster/models/github_repository_model.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 class GitHubApiRepository {
-  late final Dio _dio;
+  final Dio _dio;
 
   static const int _maxOutput = 15;
 
-  GitHubApiRepository() {
-    _dio = Dio(
-      BaseOptions(
-        baseUrl: 'https://api.github.com',
+  GitHubApiRepository(Dio dio) : _dio = dio {
+    _dio.options = BaseOptions(
+      baseUrl: 'https://api.github.com',
+    );
+    _dio.interceptors.add(
+      PrettyDioLogger(
+        requestBody: true,
       ),
-    )..interceptors.add(
-        PrettyDioLogger(
-          requestBody: true,
-        ),
-      );
+    );
   }
 
   Future<List<GitHubRepositoryModel>> fetchGitHubRepositories({
